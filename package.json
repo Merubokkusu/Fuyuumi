@@ -1,0 +1,20 @@
+{
+  "name": "Fuyuumi",
+  "version": "1.0.0",
+  "description": "A bot for testing anti-spam",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron .",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "Merubokkusu",
+  "license": "ISC",
+  "devDependencies": {
+    "electron": "^4.1.4"
+  },
+  "dependencies": {
+    "child_process": "^1.0.2",
+    "jquery": "^3.4.0"
+  }
+}

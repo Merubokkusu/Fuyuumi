@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Fuyuumi</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://discordapp.com/assets/0.1e3991231a264a472338.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+    <script type="text/javascript" src="content/app.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <link rel="stylesheet" type="text/css" media="screen" href="content/style.css">
+
+    
+</head>
+<body>
+        <header id="titlebar">
+                <div id="drag-region">
+                  <div id="window-title">
+                    <span>Fuyuumi</span>
+                  </div>
+          
+                  <div id="window-controls">
+                    <div class="button" id="min-button">
+                      <span>&#xE921;</span>
+                    </div>
+                    <div class="button" id="close-button">
+                      <span>&#xE8BB;</span>
+                    </div>
+          
+                  </div>
+                </div>
+              </header>
+              
+<div id="main">
+    
+    <ul id="tabs-swipe-demo" class="tabs">
+        <li class="tab col s3" style="background-color: rgb(49, 49, 49) !important;"><a class="active" href="#test-swipe-1"><i class="fas fa-keyboard" style="font-size:1.5em"></i></a></li>
+        <li class="tab col s3" style="background-color: rgb(49, 49, 49) !important;"><a href="#test-swipe-2"><i class="fas fa-terminal" style="font-size:1.5em"></i></a></li>
+        <li class="tab col s3" style="background-color: rgb(49, 49, 49) !important;"><a href="#test-swipe-3"><i class="fas fa-cog" style="font-size:1.5em"></i></a></li>
+      </ul>
+      <div id="test-swipe-1" class="col s12 " style="height:90%; width:100%; padding: 5px;">
+          <button onclick="test()" class="bg-blue hover:bg-blue-dark text-white font-bold py-2 px-4 rounded">
+              test
+          </button>
+          <input type="text" name="Server ID" id="server_id">
+          <input type="text" name="Server Channel" id="channel_id">
+          <input type="text" name="" id="token_add">
+          <button type="button" id="add_token_button">Add</button>
+          <button onclick="startBot()" id="test_button" class="bg-blue hover:bg-blue-dark text-white font-bold py-2 px-4 rounded">
+              Run
+          </button>
+
+            <textarea id="text_spam" placeholder="Text Spam"></textarea>
+        
+        <hr>
+        
+          <div id="log-container" style="background-color: #36393F; border:medium;" class="rounded">
+              <pre id="log"></pre>
+            </div>
+          </div>
+      </div>
+      <div id="test-swipe-2" class="col s12 red">Test 2</div>
+      <div id="test-swipe-3" class="col s12 green">Test 3</div>
+
+    
+    <script>window.$ = window.jQuery = require('jquery');</script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+<script>require('content/renderer.js')</script>
+<script>
+  $(document).ready(function(){
+    $('.tabs').tabs();
+
+  });
+
+
+</script>
+</body>
+
+</html>
