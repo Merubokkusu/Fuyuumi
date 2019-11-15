@@ -41,18 +41,9 @@
         <li class="tab col s3" style="background-color: rgb(49, 49, 49) !important;"><a href="#test-swipe-3"><i class="fas fa-cog" style="font-size:1.5em"></i></a></li>
       </ul>
       <div id="test-swipe-1" class="col s12 " style="height:90%; width:100%; padding: 5px;">
-          <button onclick="test()" class="bg-blue hover:bg-blue-dark text-white font-bold py-2 px-4 rounded">
-              test
-          </button>
-          <input type="text" name="Server ID" id="server_id">
-          <input type="text" name="Server Channel" id="channel_id">
-          <input type="text" name="" id="token_add">
-          <button type="button" id="add_token_button">Add</button>
-          <button onclick="startBot()" id="test_button" class="bg-blue hover:bg-blue-dark text-white font-bold py-2 px-4 rounded">
-              Run
-          </button>
-
-            <textarea id="text_spam" placeholder="Text Spam"></textarea>
+          <button onclick="test()" class="bg-blue hover:bg-blue-dark text-white font-bold py-2 px-4 rounded">test</button>
+          <button onclick="startBot()" id="test_button" class="bg-blue hover:bg-blue-dark text-white font-bold py-2 px-4 rounded">Run</button>
+          <textarea id="text_spam" placeholder="Text Spam"></textarea>
         
         <hr>
         
@@ -60,15 +51,19 @@
               <pre id="log"></pre>
             </div>
           </div>
-      </div>
+      
       <div id="test-swipe-2" class="col s12 red">Test 2</div>
-      <div id="test-swipe-3" class="col s12 green">Test 3</div>
-
+      <div id="test-swipe-3" class="col s12" style="height:90%; width:100%; padding: 5px;">
+        <input type="text" name="Server ID" placeholder="Server ID" id="server_id">
+        <input type="text" name="Server Channel" placeholder="Server Channel" id="channel_id">
+        <input type="text" name="" placeholder="Token" id="token_add">
+        <button type="button" id="add_token_button">Add</button>
+      </div>
+    </div>
     
     <script>window.$ = window.jQuery = require('jquery');</script>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
-<script>require('content/renderer.js')</script>
 <script>
   $(document).ready(function(){
     $('.tabs').tabs();
@@ -77,6 +72,8 @@
 
 
 </script>
+    <script>require('./content/addon.js')</script>
+
 </body>
 
 </html>

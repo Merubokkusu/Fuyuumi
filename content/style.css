@@ -156,3 +156,11 @@ p {
   line-height: 0px;
 }
 /* NAV STYLES https://codepen.io/woranov/pen/NRqLWK */
+
+input, select, textarea{
+  color: #dedede;
+}
+
+textarea:focus, input:focus {
+  color: #dedede;
+}
