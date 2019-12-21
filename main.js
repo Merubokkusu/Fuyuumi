@@ -8,7 +8,8 @@ function createWindow () {
         frame:false,
         webPreferences: {
             webSecurity: false
-        }
+        },
+        icon: './content/ico/ico.png'
     })
     
     window.loadFile('index.html')

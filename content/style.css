@@ -14,7 +14,7 @@ body {
 }
 body {
   border: 1px solid #48545c;
-  overflow-y: hidden;
+  overflow: hidden;
 }
 
 
@@ -164,3 +164,4 @@ input, select, textarea{
 textarea:focus, input:focus {
   color: #dedede;
 }
+

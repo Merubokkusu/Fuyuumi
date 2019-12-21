@@ -10,6 +10,41 @@
 * @last-modified Sun Mar 31 2019 18:42:42 GMT-0400 (Eastern Daylight Time)
 */
 
+const fs = require('fs');
+const ini = require('ini');
+const config = ini.parse(fs.readFileSync('./config.py', 'utf-8'));
+var cp = require('child_process');
+var os = require('os');
+
+function LoadConfig(){
+//# Basic Config (For all bots)
+document.getElementById("pythonCom_id").value = config.pythonCommand;
+document.getElementById("channel_id").value = config.DiscordChannel;
+document.getElementById("spmspd_id").value = config.SpamSpeed;
+document.getElementById("txtrng_id").value = config.textRandom;
+document.getElementById("txtful_id").value = config.textFull;
+//Server Joiner
+document.getElementById("useTokenJoin").value = config.useTokenJoin;
+document.getElementById("inviteLink").value = config.inviteLink;
+document.getElementById("autojoinServer").value = config.autojoinServer;
+document.getElementById("useBrowser").value = config.useBrowser;
+document.getElementById("joinSpeed").value = config.joinSpeed;
+//DM Spam
+document.getElementById("server_id").value = config.DiscordServer;
+document.getElementById("ScanAllServers").value = config.ScanAllServers;
+document.getElementById("HeavyScrape").value = config.HeavyScrape;
+//Account Creator
+document.getElementById("captchaAPI").value = config.captchaAPI;
+document.getElementById("mailServer").value = config.mailServer;
+//Picture spam
+document.getElementById("DirPictures").value = config.DirPictures;
+}
+
+function ConfigWriter(config_ID,set2){
+    config.config_ID = set2;
+    fs.writeFileSync('./config_modified.ini', ini.stringify(config))
+
+}
 
 //Logger
 rewireLoggingToElement(
@@ -48,7 +83,7 @@ function rewireLoggingToElement(eleLocator, eleOverflowLocator, autoScroll) {
         return arguments.reduce((output, arg) => {
             return output +
                 "<span class=\"log-" + (typeof arg) + " log-" + name + "\">" +
-                    (typeof arg === "object" && (JSON || {}).stringify ? JSON.stringify(arg) : arg) +
+                +'\x5B'+new Date().toTimeString().replace(/.*(\d{2}:\d{2}:\d{2}).*/, "$1")+ '] '+  (typeof arg === "object" && (JSON || {}).stringify ? JSON.stringify(arg) : arg) +
                 "</span>&nbsp;";
         }, '');
     }
@@ -71,15 +106,33 @@ submit.onclick = function () {
 
 function startBot () {
     console.info("Starting Bot");
+    var lines = document.getElementById('text_spam').value.split('\n');
+    if (fs.existsSync('text.txt')){
+        fs.unlinkSync('text.txt')
+    }
+    for(var i = 0;i < lines.length;i++){
+        //code here using lines[i] which will give you each line
+        fs.appendFileSync('text.txt', lines[i]+'\n');
 
-    var python = require('child_process').spawn('python', ['start.py','1',document.getElementById('text_spam').value]);
+    }
+
+    var python = cp.spawn('python', ['start.py','1',document.getElementById('text_spam').value]);
     python.stdout.on('data',function(data){
-        logMessage = data.toString('utf8')
+        logMessage = data.toString('utf8');
         console.log(logMessage.trim());
-        
     });
+    
 }
 
+function killBot(){
+    console.error('Killed All Instances Of Bot')
+    if(os.platform() == 'win32'){
+        cp.spawn('taskkill',['/F', '/IM', 'python.exe', '/T'])
+    }else{
+        cp.spawn('pkill -9 python')
+    }
+
+}
 
 
 

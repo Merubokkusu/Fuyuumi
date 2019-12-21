@@ -5,16 +5,20 @@
   "main": "main.js",
   "scripts": {
     "start": "electron .",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "package-win": "electron-packager . --overwrite --asar=true --platform=win32 --arch=ia32 --icon=content/ico/ico.ico --prune=true --out=release-builds --version-string.CompanyName=CE --version-string.FileDescription=CE --version-string.ProductName='Fuyuumi'"
   },
   "keywords": [],
   "author": "Merubokkusu",
   "license": "ISC",
   "devDependencies": {
-    "electron": "^4.1.4"
+    "electron": "^4.1.4",
+    "electron-packager": "^14.1.1"
   },
   "dependencies": {
     "child_process": "^1.0.2",
-    "jquery": "^3.4.0"
+    "ini": "^1.3.4",
+    "jquery": "^3.4.1",
+    "ps-node": "^0.1.6"
   }
 }

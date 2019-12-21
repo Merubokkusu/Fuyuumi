@@ -2,11 +2,6 @@
 // be executed in the renderer process for that window.
 // All of the Node.js APIs are available in this process.
 const remote = require('electron').remote;
-const fs = require('fs');
-const ini = require('ini');
-const config = ini.parse(fs.readFileSync('./config.py', 'utf-8'));
-document.getElementById("channel_id").value = config.DiscordChannel;
-
 
 
 (function handleWindowControls() {
