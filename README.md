@@ -1,4 +1,4 @@
-# Fuyuumi
+# Fuyuumi <img src="https://s.put.re/pgh732Cd.png" width="45" />
 A GUI being made for discord-spam-bots, very slowly.
 
 >For info/progress follow https://twitter.com/merubokkusu
